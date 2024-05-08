@@ -1,0 +1,130 @@
+#YGOR PIRES ANGELI - RA: 37893
+
+import pandas as pd
+
+# Carregar o conjunto de dados
+df = pd.read_csv("AtvAAI.csv")
+
+# Visualizar as primeiras linhas do conjunto de dados (por padrão, as primeiras 5 linhas)
+print("Visualizar as primeiras linhas do conjunto de dados:")
+print(df.head())
+
+# Visualizar informações sobre o conjunto de dados, como número de linhas, colunas e tipos de dados
+print("\nInformações sobre o conjunto de dados:")
+print(df.info())
+
+# Estatísticas descritivas das variáveis numéricas do conjunto de dados
+print("\nEstatísticas descritivas das variáveis numéricas:")
+print(df.describe())
+
+# Verificar valores ausentes em cada coluna do conjunto de dados
+print("\nVerificar valores ausentes:")
+print(df.isnull().sum())
+
+# Verificar duplicatas no conjunto de dados
+print("\nVerificar duplicatas:")
+print(df.duplicated().sum())
+
+# Plote um gráfico de dispersão para visualizar a relação entre duas variáveis
+import matplotlib.pyplot as plt
+plt.scatter(df['Valor_Compra'], df['Quantidade_Itens'])
+plt.xlabel('Valor_Compra')
+plt.ylabel('Quantidade_Itens')
+plt.title('Relação entre Valor da Compra e Quantidade de Itens')
+plt.show()
+
+*******************************************
+
+import pandas as pd
+
+# Carregar o conjunto de dados
+df = pd.read_csv("AtvAAI.csv")
+
+# Calcular a média, mediana e desvio padrão de uma coluna específica
+media_valor_compra = df['Valor_Compra'].mean()
+mediana_valor_compra = df['Valor_Compra'].median()
+desvio_padrao_valor_compra = df['Valor_Compra'].std()
+
+print("Estatísticas do Valor da Compra:")
+print("Média:", media_valor_compra)
+print("Mediana:", mediana_valor_compra)
+print("Desvio Padrão:", desvio_padrao_valor_compra)
+
+# Você pode repetir esse processo para outras colunas, se desejar
+# Por exemplo, para a coluna 'Quantidade de Itens':
+media_quantidade_itens = df['Quantidade_Itens'].mean()
+mediana_quantidade_itens = df['Quantidade_Itens'].median()
+desvio_padrao_quantidade_itens = df['Quantidade_Itens'].std()
+
+print("\nEstatísticas da Quantidade de Itens:")
+print("Média:", media_quantidade_itens)
+print("Mediana:", mediana_quantidade_itens)
+print("Desvio Padrão:", desvio_padrao_quantidade_itens)
+******************************************************************
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Gerar dados de exemplo
+np.random.seed(0)
+X = 2 * np.random.rand(100, 1) # Variável independente (por exemplo, preço)
+y = 4 + 3 * X + np.random.randn(100, 1) # Variável dependente (por exemplo, vendas)
+
+# Visualizar os dados
+plt.scatter(X, y, color='blue')
+plt.title('Dados de Exemplo')
+plt.xlabel('Variável Independente (X)')
+plt.ylabel('Variável Dependente (y)')
+plt.show()
+
+# Criar um modelo de regressão linear
+model = LinearRegression()
+
+# Treinar o modelo com os dados
+model.fit(X, y)
+
+# Coeficientes da regressão linear (intercept e coeficiente)
+intercept = model.intercept_
+coeficiente = model.coef_[0]
+
+print("Intercept:", intercept)
+print("Coeficiente:", coeficiente)
+
+# Fazer previsões com o modelo treinado
+X_new = np.array([[0], [2]])
+y_pred = model.predict(X_new)
+
+# Visualizar as previsões
+plt.scatter(X, y, color='blue')
+plt.plot(X_new, y_pred, color='red', linewidth=2)
+plt.title('Regressão Linear Simples')
+plt.xlabel('Variável Independente (X)')
+plt.ylabel('Variável Dependente (y)')
+plt.show()
+******************************************************
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Criando um conjunto de dados de exemplo (vendas mensais)
+np.random.seed(0)
+Data_Compra = pd.date_range('15-02-2024', periods=12, freq='M')
+Valor_Compra = np.random.randint(50, 600, size=12)
+Data_Compra = pd.DataFrame({'Mês': Data_Compra, 'Vendas': Quantidade_Itens})
+
+# Exibindo as primeiras linhas do DataFrame
+print(Data_Compra.head())
+***************************************************************
+
+plt.figure(figsize=(10, 6))
+plt.plot(Data_Compra['Mês'], Data_Compra['Vendas'], marker='o', color='b', linestyle='-')
+plt.title('Vendas Mensais')
+plt.xlabel('Mês')
+plt.ylabel('Vendas')
+plt.grid(True)
+plt.show()
+*******************************************************
+
